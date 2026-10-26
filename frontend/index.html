@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Food Ordering - Faculty Demonstration</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation / Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="brand-icon">🍴</span>
+        <div>
+          <h1 class="brand-title">Online Food Ordering</h1>
+          <p class="brand-subtitle">Fresh food. Simple ordering.</p>
+        </div>
+      </div>
+      <!-- Real-time API Health Status Indicator -->
+      <div id="apiStatus" class="status-pill status-checking">
+        <span class="status-dot"></span>
+        <span id="statusText">Checking Backend...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Application Content -->
+  <main class="main-container">
+    <div class="content-grid">
+      
+      <!-- Left Column: Browse Restaurants & Food Menu -->
+      <section class="menu-column">
+        
+        <!-- Restaurants Section -->
+        <div class="section-block">
+          <div class="section-header">
+            <h2 class="section-title">Partner Restaurants</h2>
+            <span class="section-badge" id="restaurantCount">Loading...</span>
+          </div>
+          <div id="restaurantsList" class="restaurants-grid">
+            <div class="loading-placeholder">Loading restaurants from database...</div>
+          </div>
+        </div>
+
+        <!-- Food Menu Section -->
+        <div class="section-block">
+          <div class="section-header">
+            <h2 class="section-title">Explore Menu</h2>
+            <span class="section-badge" id="foodCount">Loading...</span>
+          </div>
+
+          <!-- Category Filter Bar -->
+          <div class="filter-wrapper">
+            <span class="filter-label">Filter by Category:</span>
+            <div id="categoryFilter" class="category-filters">
+              <button class="filter-btn active" data-category="all">All Items</button>
+            </div>
+          </div>
+
+          <!-- Food Cards Grid -->
+          <div id="foodList" class="food-grid">
+            <div class="loading-placeholder">Loading food items from database...</div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Right Column: Interactive Cart -->
+      <aside class="cart-column">
+        <div class="cart-card">
+          <div class="cart-header">
+            <div class="cart-header-title">
+              <span class="cart-icon">🛒</span>
+              <h3>Your Order</h3>
+            </div>
+            <span id="cartCountBadge" class="cart-badge">0 items</span>
+          </div>
+
+          <!-- Dynamic Cart Items Container -->
+          <div id="cartItems" class="cart-items-container">
+            <div class="cart-empty-state">
+              <div class="empty-icon">🍽️</div>
+              <p>Your cart is empty</p>
+              <span>Click "+ Add to Cart" on any dish to start ordering</span>
+            </div>
+          </div>
+
+          <!-- Cart Footer / Total Calculation -->
+          <div class="cart-footer">
+            <div class="cart-summary-row">
+              <span>Subtotal</span>
+              <span id="cartSubtotal">₹0.00</span>
+            </div>
+            <div class="cart-summary-row">
+              <span>Delivery Fee</span>
+              <span class="text-free">FREE</span>
+            </div>
+            <div class="cart-total-row">
+              <span>Total Payable</span>
+              <span id="cartTotal" class="total-amount">₹0.00</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn" disabled>
+              Place Demo Order
+            </button>
+            <p class="demo-note">* Frontend demonstration cart (In-memory state)</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <p>Online Food Ordering System &bull; Node.js + Express.js + MySQL/MariaDB &bull; College Mini-Project Demo</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
